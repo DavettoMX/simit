@@ -1,20 +1,19 @@
-# Makefile for Python project with uv
-PYTHON := python3
+# Makefile for MLOps monorepo with uv
 
 deps:
-	uv pip install -r requirements.txt
+	uv sync
 
 test:
-	python -m pytest -vv tests/
+	python -m pytest -vv backend/tests/
 
 format:
-	black --target-version py311 .
+	black --target-version py311 backend/
 
 lint:
-	pylint --disable=R,C main.py
+	pylint --disable=R,C backend/main.py
 
 clean:
-	rm -rf __pycache__ .pytest_cache \
-		rm -rf tests/__pycache__
+	find . -type d -name __pycache__ -exec rm -rf {} +
+	find . -type d -name .pytest_cache -exec rm -rf {} +
 
 all: deps format lint test clean

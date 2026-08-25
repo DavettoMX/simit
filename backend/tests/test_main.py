@@ -1,4 +1,4 @@
-from main import main
+from backend.main import main
 
 
 def test_hello():

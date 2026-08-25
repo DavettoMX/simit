@@ -1,10 +1,32 @@
-# Python-generated files
+# Python
 __pycache__/
 *.py[oc]
 build/
 dist/
 wheels/
 *.egg-info
-
-# Virtual environments
 .venv
+
+# Node / Frontend
+node_modules/
+.wrangler
+.output
+.vercel
+.netlify
+.vinxi
+app.config.timestamp_*.js
+
+# Environment
+.env
+.env*.local
+
+# IDEs
+.idea/
+.project
+.classpath
+*.launch
+.settings/
+
+# System
+.DS_Store
+Thumbs.db
