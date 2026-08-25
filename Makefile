@@ -1,7 +1,7 @@
 # Makefile for MLOps monorepo with uv
 
 deps:
-	uv sync
+	uv sync && pnpm -C frontend install
 
 test:
 	python -m pytest -vv backend/tests/
@@ -11,6 +11,12 @@ format:
 
 lint:
 	pylint --disable=R,C backend/main.py
+
+run-frontend:
+	pnpm -C frontend dev
+
+run-backend:
+	uv run fastapi dev backend/main.py
 
 clean:
 	find . -type d -name __pycache__ -exec rm -rf {} +
